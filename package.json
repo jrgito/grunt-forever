@@ -28,7 +28,8 @@
     "test": "node node_modules/.bin/cucumber-js"
   },
   "dependencies": {
-    "forever": "^0.14.1"
+    "forever": "^0.14.1",
+    "path-is-absolute": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^1.10.0",
