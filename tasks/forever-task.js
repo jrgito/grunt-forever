@@ -1,5 +1,6 @@
 var forever     = require('forever'),
     path        = require('path'),
+    isAbsolute  = require('path-is-absolute'),
     logDir      = path.join(process.cwd(), 'forever'),
     outFile     = undefined,
     errFile     = undefined,
@@ -176,7 +177,7 @@ module.exports = function(grunt) {
 
       var index = this.options().index || 'index.js',
           operation = target || 'start';
-
+      index = isAbsolute(index) ? index : path.resolve(process.cwd(), index);
       commandName = this.options().command;
       logDir = undefined !== this.options().logDir ? path.join(process.cwd(), this.options().logDir) : logDir;
       outFile = undefined !== this.options().outFile ? path.join(logDir, this.options().outFile) : outFile;
